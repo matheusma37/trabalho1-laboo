@@ -1,18 +1,32 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Lista</ion-title>
-  </ion-navbar>
+	<ion-navbar>
+		<ion-title>Lista</ion-title>
+	</ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-  	<ion-item-sliding *ngFor="let nome of nomes">
-    
-    <ion-item> {{nome}} </ion-item>
+	<ion-list>
+		<ion-item>
+			<ion-label floating>Nome</ion-label>
+			<ion-input type="text" [(ngModel)]="nome"></ion-input>
+		</ion-item>
+		<button ion-button round (click)="salvarNome()">
+  			Salvar 
+  			<ion-icon name="add"></ion-icon>
+		</button>
 
-    <ion-item-options side="right" (ionSwipe)="removerNome(nome)">
-      <ion-icon name="trash"> Remover</ion-icon>
-    </ion-item-options>
-  </ion-item-sliding>
-  </ion-list>
+		<ion-item>
+    		<ion-list>
+  	  			<ion-item-sliding *ngFor="let nome of nomes">
+  	  				<button ion-item>
+    					{{nome}}
+    					<ion-icon name="arrow-dropleft" item-end></ion-icon>
+  					</button>
+        			<ion-item-options side="right" (ionSwipe)="removerNome(nome)">
+          				<ion-icon name="trash"> Remover</ion-icon>
+        			</ion-item-options>
+      			</ion-item-sliding>
+    		</ion-list>
+    	</ion-item>
+  	</ion-list>
 </ion-content>
