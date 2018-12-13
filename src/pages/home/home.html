@@ -6,12 +6,12 @@
 
 <ion-content padding>
   <ion-list>
-  	<ion-item-sliding *ng-for="let nome of nomes">
+  	<ion-item-sliding *ngFor="let nome of nomes">
     
     <ion-item> {{nome}} </ion-item>
 
-    <ion-item-options>
-      <button danger (click)="removerNome(nome)"><icon trash></icon> Remover</button>
+    <ion-item-options side="right" (ionSwipe)="removerNome(nome)">
+      <ion-icon name="trash"> Remover</ion-icon>
     </ion-item-options>
   </ion-item-sliding>
   </ion-list>

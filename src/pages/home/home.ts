@@ -5,10 +5,16 @@ import { NavController } from 'ionic-angular';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {
 
+export class HomePage {
+  nomes: String = ["Matheus","João","Paulo"]
   constructor(public navCtrl: NavController) {
 
   }
 
+  removerNome(nome){
+  	if(nome){
+  		this.nomes.splice( this.nomes.indexOf(nome), 1);
+  	}
+  }
 }
