@@ -7,5 +7,34 @@
 </ion-header>
 
 <ion-content padding>
+	<ion-list>
+		<ion-item>
+			<ion-label>A =</ion-label>
+			<ion-input type="text" [(ngModel)]="a"></ion-input>
+		</ion-item>
 
+		<ion-item>
+  			<ion-label>Operações</ion-label>
+  			<ion-select [(ngModel)]="op" interface="action-sheet">
+    			<ion-option value="+">+</ion-option>
+    			<ion-option value="-">-</ion-option>
+    			<ion-option value="*">*</ion-option>
+    			<ion-option value="/">/</ion-option>
+  			</ion-select>
+		</ion-item>
+
+		<ion-item>
+			<ion-label>B =</ion-label>
+			<ion-input type="text" [(ngModel)]="b"></ion-input>
+		</ion-item>
+
+		<button ion-button (click)="calcular()">
+  			=
+		</button>
+
+		<ion-item>
+    		<ion-label>Resultado: </ion-label>
+    		<ion-label> {{resultado}}</ion-label>
+    	</ion-item>
+  	</ion-list>
 </ion-content>
