@@ -7,8 +7,8 @@ import { NavController, AlertController } from 'ionic-angular';
 })
 
 export class HomePage {
-  nomes: Array<string> = ["Matheus","João","Paulo"];
-  nome: string = "";
+  nomes: Array<String> = ["Matheus","João","Paulo"];
+  nome: String = "";
   constructor(public navCtrl: NavController, private alertCtrl: AlertController) {
 
   }
