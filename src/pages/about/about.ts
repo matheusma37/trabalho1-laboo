@@ -10,11 +10,13 @@ export class AboutPage {
   b: String = "";
   op: String = "";
   resultado: String = "";
+  
   constructor(public navCtrl: NavController, private alertCtrl: AlertController) {
 
   }
+
   calcular(){
-    if(!this.a || !this.b || !this.op){
+    if(!this.a.valueOf() || !this.b.valueOf() || !this.op.valueOf()){
       let alert = this.alertCtrl.create({
     			title: 'Error!',
     			subTitle: 'Preencha todos os campos...',
@@ -22,27 +24,24 @@ export class AboutPage {
   			});
   	  alert.present();
     }
-    else if(isNaN(this.a) || isNaN(this.b)){
+    else if(isNaN(Number(this.a)) || isNaN(Number(this.b))){
       let alert = this.alertCtrl.create({
     			title: 'Error!',
-    			subTitle: 'Use apenas números para \"a\" e \"b\"...',
+    			subTitle: 'Use apenas números para "a" e "b"...',
     			buttons: ['Ok']
   			});
   	  alert.present();
     }
-    else{
-      let A = parseFloat(this.a, 10);
-      let B = parseFloat(this.b, 10);
-      switch(this.op){
-        case '+': this.resultado = ""+(A + B);
-        		  break;
-        case '-': this.resultado = ""+(A - B);
-        		  break;
-        case '*': this.resultado = ""+(A * B);
-        		  break;
-        case '/': this.resultado = ""+(A / B);
-        		  break;
+    else if(this.b.valueOf() == '0' && this.op.valueOf() == '/'){
+        let alert = this.alertCtrl.create({
+    			title: 'Error!',
+    			subTitle: 'Não é permitida divisão por zero!',
+    			buttons: ['Ok']
+  			});
+  	    alert.present();
+      }
+      else{
+        this.resultado = "" + eval(this.a.valueOf() + this.op.valueOf() + this.b.valueOf());
       }
     }
-  }
 }
