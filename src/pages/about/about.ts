@@ -32,7 +32,7 @@ export class AboutPage {
   			});
   	  alert.present();
     }
-    else if(this.b.valueOf() == '0' && this.op.valueOf() == '/'){
+    else if(Number(this.b.valueOf()) == 0 && this.op.valueOf() == '/'){
         let alert = this.alertCtrl.create({
     			title: 'Error!',
     			subTitle: 'Não é permitida divisão por zero!',
@@ -41,7 +41,7 @@ export class AboutPage {
   	    alert.present();
       }
       else{
-        this.resultado = "" + eval(this.a.valueOf() + this.op.valueOf() + this.b.valueOf());
+        this.resultado = "" + eval(Number(this.a.valueOf()) + this.op.valueOf() + Number(this.b.valueOf()));
       }
     }
 }
